@@ -1,0 +1,80 @@
+/*#wrap{
+    position: relative;
+}
+
+#wrap > size,
+#wrap > canvas{
+    position: absolute;
+    left:0;
+    top:0;
+}*/
+
+#myTable {
+border: 1px solid black;
+border-collapse: collapse;
+visibility: hidden;
+}
+
+#tableE{
+    padding-right: 5vw;
+}
+
+#myTable tr td{
+    border: 1px solid black;
+    
+}
+
+
+canvas{
+    position:absolute;
+   
+
+}
+
+#submit{
+    background-color: darkorange;
+    font-size: 1vw;
+    width: 10vw;
+    height: 5vw;
+   
+    margin-right: 10vw;
+}
+
+#selections{
+    font-family: 'Courier New', Courier, monospace;
+    outline-style: dotted;
+    outline-color: black;
+     
+}
+
+#title{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#size{
+    background-color: lightcoral;
+}
+
+#sauce{
+    background-color: lightsalmon;
+}
+
+#cheese{
+    background-color: rgb(253, 253, 109);
+}
+
+#meats{
+    background-color: lightcoral;
+}
+ 
+#veggies{
+    background-color: rgb(253, 253, 109);
+}
+
+#crust{
+    background-color: lightsalmon;
+
+}
+
+
+

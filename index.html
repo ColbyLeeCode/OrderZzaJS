@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="stylesheet" href="styles.css">
+</head>
+
+
+
+<body onload="onOpen()" onscroll="scrolled()">
+
+        <div id="canvas-container" style="text-align:center">
+                <canvas id="canvas" width="50px" height="50px"></canvas>
+                </container>
+        </div>
+
+        <center>
+                <strong>
+                        <h1 id="title">Create Your Zzzaa</h1>
+                </strong>
+        </center>
+
+        <div id="selections">
+                <!--Size-->
+                <div id=size>
+                        <h4>Size</h4>
+                        <container>
+                                <input type="radio" name="size" value="Personal Pizza" data-value="6" onclick="tallyOrder();"> Personal $6.00
+                                <br>
+                                <input type="radio" name="size" value="Medium Pizza" data-value="10" onclick="tallyOrder();"> Medium $10.00
+                                <br>
+                                <input type="radio" name="size" value="Large Pizza" data-value="14" onclick="tallyOrder();"> Large $14.00
+                                <br>
+                                <input type="radio" name="size" value="Extra-Large Pizza" data-value="16" onclick="tallyOrder();"> Extra Large $16.00
+                                <br>
+                        </container>
+                </div>
+                <!--/Size-->
+
+                <!--Sauce-->
+
+                <div id=sauce>
+                        <h4>Sauce</h4>
+                        <container>
+                                <input type="radio" name="sauce" value="Marinara" data-value="0" onclick="tallyOrder();"> Marinara
+                                <br>
+                                <input type="radio" name="sauce" value="White" data-value="0" onclick="tallyOrder();"> White
+                                <br>
+                                <input type="radio" name="sauce" value="Barbeque" data-value="0" onclick="tallyOrder();"> Barbeque
+                                <br>
+                                <input type="radio" name="sauce" value="No Sauce" data-value="0" onclick="tallyOrder();"> No Sauce
+                                <br>
+                        </container>
+                </div>
+                <!--/Sauce-->
+
+                <!--Cheese-->
+
+                <div id="cheese">
+                        <h4>Cheese</h4>
+                        <container>
+                                        <center><i><h8>Extra Cheese + $3.00</h8></i></br></center>
+                                <input type="radio" name="cheese" value="Regular" data-value="0" onclick="tallyOrder();"> Regular
+                                <br>
+                                <input type="radio" name="cheese" value="No-cheese" data-value="0" onclick="tallyOrder();"> No Cheese
+                                <br>
+                                <input type="radio" name="cheese" value="Extra Cheese" data-value="3" onclick="tallyOrder();"> Extra Cheese
+                                <br>
+
+                        </container>
+                </div>
+                <!--/Cheese-->
+
+                <!--Meats-->
+
+                <div id="meats">
+                        <h4>Meats</h4>
+                        <container>
+                                <center><i><h8>First one free, $1.00 per extra.</h8></i></br></center>
+                                <input type="checkbox" name="meat" value="Perpperoni" onclick="tallyOrder();"> Pepperoni
+                                <br>
+                                <input type="checkbox" name="meat" value="Sausage" onclick="tallyOrder();"> Sausage
+                                <br>
+                                <input type="checkbox" name="meat" value="Canadian" onclick="tallyOrder();"> Canadian
+                                <br>
+                                <input type="checkbox" name="meat" value="Groundbeef" onclick="tallyOrder();"> Ground Beef
+                                <br>
+                                <input type="checkbox" name="meat" value="Anchovy" onclick="tallyOrder();"> Anchovy
+                                <br>
+                                <input type="checkbox" name="meat" value="Chicken" onclick="tallyOrder();"> Chicken
+                                <br>
+                        </container>
+                </div>
+                <!--/Meats-->
+
+                <!--Crust-->
+
+                <div id="crust">
+                        <h4>Crust</h4>
+                        <container>
+                                        <center><i><h8>Cheese Stuffed Crust + $3.00</h8></i></br></center>
+                                <input type="radio" name="crust" value="Plain Crust" data-value="0" onclick="tallyOrder();"> Plain
+                                <br>
+                                <input type="radio" name="crust" value="Garlic Crust" data-value="0" onclick="tallyOrder();"> Garlic
+                                <br>
+                                <input type="radio" name="crust" value="Cheese Stuffed Crust" data-value="3" onclick="tallyOrder();"> Cheese Stuffed
+                                <br>
+                                <input type="radio" name="crust" value="Spicy Crust" data-value="0" onclick="tallyOrder();"> Spicy
+                                <br>
+                                <input type="radio" name="crust" value="House Crust" data-value="0" onclick="tallyOrder();"> House Special
+                                <br>
+                        </container>
+                </div>
+                <!--/Crust-->
+
+
+                <!--Veggies-->
+
+                <div id="veggies">
+                        <h4>Veggies</h4>
+                        <container>
+                                <i><center><h8>First one free, $1.00 per extra.</h8></center></i></br>
+                                <input type="checkbox" name="veggie" value="Tomatoes" onclick="tallyOrder();"> Tomatoe
+                                <br>
+                                <input type="checkbox" name="veggie" value="Onions" onclick="tallyOrder();"> Onion
+                                <br>
+                                <input type="checkbox" name="veggie" value="Olives" onclick="tallyOrder();"> Olive
+                                <br>
+                                <input type="checkbox" name="veggie" value="Green Peppers" onclick="tallyOrder();"> Green Peppers
+                                <br>
+                                <input type="checkbox" name="veggie" value="Mushrooms" onclick="tallyOrder();"> Mushroom
+                                <br>
+                                <input type="checkbox" name="veggie" value="Pineapples" onclick="tallyOrder();"> Pineapple
+                                <br>
+                                <input type="checkbox" name="veggie" value="Spinach" onclick="tallyOrder();"> Spinach
+                                <br>
+                                <input type="checkbox" name="veggie" value="Jalapenos" onclick="tallyOrder();"> Jalapeno
+                                <br>
+                        </container>
+                </div>
+        </div>
+        <!--/Veggies-->
+
+        <!--Submit-->
+
+        <!--Submit-->
+        <br/>
+        <br/>
+        <center>
+                <button id="submit" type="button" onClick="submitOrder();">Zzzaa Me (order)</button>
+        </center>
+        <!--Submit-->
+
+        <!--RECIPT-->
+        <br/>
+        <br/>
+
+
+        <table id="myTable">
+
+                <tr>
+                        <td id="tableE">Size</td>
+                        <td>Price</td>
+                </tr>
+                <tr>
+                        <td id="tableE">Crust</td>
+                        <td>Price</td>
+                </tr>
+                <tr>
+                        <td id="tableE">Cheese</td>
+                        <td>Price</td>
+                </tr>
+                <tr>
+                        <td id="tableE">Meat</td>
+                        <td>Price</td>
+                </tr>
+                <tr>
+                        <td id="tableE">Sauce</td>
+                        <td>Price</td>
+                </tr>
+                <tr>
+                        <td id="tableE">Veggies</td>
+                        <td>Price</td>
+                </tr>
+                <tr>
+                        <td id="tableE">
+                                <strong>Total Price:</strong>
+                        </td>
+                        <td></td>
+                </tr>
+
+
+        </table>
+
+        <!--/RECIPt-->
+
+
+        <script src="menu.js"></script>
+
+
+</body>
+
+</html>
