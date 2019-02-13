@@ -1,60 +1,27 @@
 
 var ctx = canvas.getContext("2d");
-// Find a <table> element with id="myTable":
 var table = document.getElementById("myTable");
-
 var rows = table.rows
-
-    
-  
-
-
-
 var pizza, selectionHeight, mousePos, order, points, angles;
 
-
-
 function onOpen() {
-    console.log("window loaded");
-
-
-    console.log(canvas);
-
     document.onmousemove = handleMouseMove;
     ctx = canvas.getContext("2d");
-
     pizza = new Pizza();
     order = new Order();
     points = randomPoints(200, 0, 130);
     veggiePoints = randomPoints(200, 0, 130);
     angles = randomAngles(100, 0, 360);
-
     mousePos = {};
-
-
     window.onscroll(scrolled());
     var body = document.body;
     canvas.height = body.clientHeight;
     canvas.width = body.scrollWidth / 2;
-
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    
-
-
     setInterval(update, 40);
-
 }
 
-
-
-
-
-function scrolled() {
-    console.log("scrolling!");
-
-}
 function handleMouseMove(event) {
 
     mousePos = {
@@ -63,48 +30,28 @@ function handleMouseMove(event) {
     };
 
 }
-
 //d
 function update() {
-
-    //recieve selection input
-
     //clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //redraw pizza
-    order.draw(mousePos.y);
-
-    
+    order.draw(mousePos.y);    
 }
 
-function tallyOrder() {
-    
+function tallyOrder() {    
     order = new Order();
-
+    
     //Get Size ordererd
     var size = document.getElementsByName('size');
-    for (var i = 0, length = size.length; i < length; i++) {
-        
+    for (var i = 0, length = size.length; i < length; i++) {        
         if (size[i].checked) {
             //order size gets type and price
-            order.size = [size[i].value, parseInt(size[i].getAttribute("data-value"))];
-           
-
-            // only one radio can be logically checked, don't check the rest
+            order.size = [size[i].value, parseInt(size[i].getAttribute("data-value"))];   
             break;
-        }
-
-        
-
-
-        
+        } 
     }
     rows[0].cells[0].innerHTML = order.size[0];
     rows[0].cells[1].innerHTML = "$" + parseFloat(order.size[1]).toFixed(2);
-
-    
-
-  
 
     //Get Sauce ordererd
     var sauce = document.getElementsByName('sauce');
@@ -124,10 +71,7 @@ function tallyOrder() {
     var cheese = document.getElementsByName('cheese');
     for (var i = 0, length = cheese.length; i < length; i++) {
         if (cheese[i].checked) {
-
             order.cheese = [cheese[i].value, parseInt(cheese[i].getAttribute("data-value"))];
-
-
             break;
         }
     }
@@ -139,9 +83,7 @@ function tallyOrder() {
     for (var i = 0, length = meats.length; i < length; i++) {
         if (meats[i].checked) {
             console.log("pushing meat");
-
             order.meats.push(meats[i]);
-
         }
     }
 
@@ -156,15 +98,11 @@ function tallyOrder() {
     rows[3].cells[1].innerHTML = "+$" + parseFloat(order.getMeatsPrice()).toFixed(2);
     rows[3].cells[0].innerHTML = cell;
 
-
     //Get Crust ordererd
     var crust = document.getElementsByName('crust');
     for (var i = 0, length = crust.length; i < length; i++) {
         if (crust[i].checked) {
-            console.log("crusting");
-
             order.crust = [crust[i].value, parseInt(crust[i].getAttribute("data-value"))];
-
         }
     }
     rows[1].cells[0].innerHTML = order.crust[0];
@@ -174,10 +112,7 @@ function tallyOrder() {
     var veggies = document.getElementsByName('veggie');
     for (var i = 0, length = veggies.length; i < length; i++) {
         if (veggies[i].checked) {
-            console.log("pushing veggie");
-
             order.veggies.push(veggies[i]);
-
         }
     }
     var cell = "";
@@ -192,11 +127,7 @@ function tallyOrder() {
     rows[5].cells[0].innerHTML = cell;
 
     console.log(order.toString());
-    rows[6].cells[1].innerHTML = "$" + calcPrice();
-
-
-    //if a selection has been made in that area change the background color of that section to green
-    
+    rows[6].cells[1].innerHTML = "$" + calcPrice();    
 }
 
 function randomPoints(count, low, high) {
@@ -208,7 +139,6 @@ function randomPoints(count, low, high) {
         };
         local_points.push(point);
     }
-
     return local_points;
 }
 
@@ -218,17 +148,14 @@ function randomAngles(count, low, high) {
         angle = Math.floor(Math.random() * (high - low + 1) + low);
         angles.push(angle);
     }
-
     return angles;
 }
 
 function submitOrder() {
     //tally everything one last time
     tallyOrder();
-
     //calculate price with current rates
     calcPrice(order);
-
     //if every option selected, display the recipt
     if(order.sauce.length > 0 && order.size.length > 0 && order.cheese.length > 0 && order.crust.length > 0 && order.meats.length > 0 && order.veggies.length > 0)
         table.style.visibility = "visible";
@@ -238,41 +165,28 @@ function submitOrder() {
 }
 
 function calcPrice() {
-
     //size price
     var size = parseFloat(order.getSizePrice()).toFixed(2);
-    console.log("Size: " + size);
 
     //sauce price
     var sauce = parseFloat(order.getSaucePrice()).toFixed(2);
-    console.log("Sauce: " + size);
 
     //cheese price
     var cheese = parseFloat(order.getCheesePrice()).toFixed(2);
-    console.log("Cheese: " + cheese);
 
     //meats price
     var meats = parseFloat(order.getMeatsPrice()).toFixed(2);
-    console.log("Meats: " + meats);
 
     //crust price
     var crust = parseFloat(order.getCrustPrice()).toFixed(2);
-    console.log("Crust: " + crust);
 
     //veggies price
     var veggies = parseFloat(order.getVeggiesPrice()).toFixed(2);
-    console.log("Veggie: " + veggies);
-
 
     //total
     var total = parseFloat(size) + parseFloat(sauce) + parseFloat(meats) + parseFloat(cheese) + parseFloat(crust) + parseFloat(veggies);
 
-    console.log("Total: " + total);
-
     return parseFloat(total).toFixed(2);
-
-
-
 }
 
 class Order {
@@ -388,12 +302,9 @@ class Order {
             if (i > 0)
                 total = total + price;
         }
-
         return total + 0.00;
 
     }
-
-
 
     toString() {
         var out = "Size: " + this.size[0] + ": " + this.size[1] + "$" + "\n" +
