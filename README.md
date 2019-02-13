@@ -1,3 +1,6 @@
 # PizzaPage
-Java Script final for The Tech Academy. This project is the backbone of a webpage that allows users to order a pizza given a set of selections and outputs a recipt in the form of a styled html page. While
-making selections a pizza is drawn on a canvas element to the right of the most recent selection. 
+This project is a demonstration of a webpage utilizing javascript, html, and css to order a pizza given a set of selections and prices. After selections are made and submitted a formatted recipt is displayed. The selections are made via radio buttons and totaled after every selection via a few javascript classes.
+
+![alt text](https://github.com/clobslee/PizzaPage/blob/master/main.png)
+
+![alt text](https://github.com/clobslee/PizzaPage/blob/master/recipt.png)
